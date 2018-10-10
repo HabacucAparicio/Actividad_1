@@ -1,0 +1,38 @@
+package archivos_texto;
+import java.io.*;
+//Etsa clase la utilizamos par mostrar lso archivos
+public class LeerArchivo {
+    public static void main(String[] args) throws IOException {
+        File archivo = null;
+        FileReader fi = null;
+        BufferedReader m = null;
+        //Apertura del archivo
+        //Esta es la ruta
+        archivo = new File("C:\\prueba\\archivo.txt");
+        try{
+            try{
+        fi = new FileReader(archivo);
+
+        m = new BufferedReader(fi);//Aqui ya esta preparado para leerlo
+        //Lectrua del archivo
+        String linea;
+        while((linea = m.readLine())!=null){
+            System.out.println(linea);   
+        }
+    }catch(FileNotFoundException x){
+            System.out.println("El archivo no existe ERROR "+ x.getMessage());   
+}
+    }catch(IOException O){
+                System.out.println("Error de datos");
+            }finally{
+            //Es para cerrar el archivo
+            try{
+            if(fi != null){
+                fi.close();
+            }
+            }catch(FileNotFoundException x){
+            System.out.println("El archivo no existe ERROR "+ x.getMessage());   
+} 
+    }      
+ }          
+}
