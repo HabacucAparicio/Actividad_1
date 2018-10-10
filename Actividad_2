@@ -1,0 +1,42 @@
+
+
+package archivos_texto;
+
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+import java.io.File;
+
+
+public class Suma {
+    
+    public static void main(String[] args) throws FileNotFoundException {
+        
+        Scanner file ;
+        PrintStream save;
+        int suma;
+        
+        
+        
+        
+        file= new Scanner(new File("C:\\prueba\\suma.txt"));
+        
+        save = new PrintStream("C:\\prueba\\resultado.txt");
+        int numero1, numero2, cont =1;
+        
+        while (file.hasNext()){
+            numero1 = file.nextInt();
+            numero2 = file.nextInt();
+            
+            suma = numero1+numero2;
+            
+            System.out.println(cont+" : "+numero1+" + "+numero2+" = "+suma);
+            
+             save.print(cont+" : "+numero1+" + "+numero2+" = "+suma);
+             
+             cont ++;
+            
+        }
+   
+    } 
+}
